@@ -17,7 +17,6 @@ public class ZKManagerImpl implements ZKManager {
 
 	private static ZooKeeper zkeeper;
 	private static ZKConnection zkConnection;
-	private final String zkServer = "localhost";
 
 	/**
 	 * 初始化连接
@@ -25,7 +24,17 @@ public class ZKManagerImpl implements ZKManager {
 	public ZKManagerImpl() {
 		try {
 			zkConnection = new ZKConnection();
-			zkeeper = zkConnection.connect("zkHost");
+			zkeeper = zkConnection.connect("localhost");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ZKManagerImpl(String zkServer) {
+		try {
+			zkConnection = new ZKConnection();
+			zkeeper = zkConnection.connect(zkServer);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

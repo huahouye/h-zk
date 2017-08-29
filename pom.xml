@@ -6,12 +6,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>h-zk</name>
 	<description>java zookeeper</description>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
