@@ -31,6 +31,7 @@ public class ZKConnection {
 	// Method to connect zookeeper ensemble.
 	public ZooKeeper connect(String host) throws IOException, InterruptedException {
 		zoo = new ZooKeeper(host, 5000, new Watcher() {
+			// zookeeper 的连接状态通过实现 Watcher 接口的对象回调方法返回
 			public void process(WatchedEvent we) {
 				if (we.getState() == KeeperState.SyncConnected) {
 					// 执行 countDown() 释放锁，让 connectedSignal.await() 可以往后执行
